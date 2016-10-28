@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+	<title>enigmaX</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="enigmax.css" />
+	<link rel="icon" type="image/ico" href="favicons/ex2.ico">
+</head>
+
+
+
+
+<body>
+<div id="hiddenBody">
+<div id="centerDiv">
+
+<h1 id="title1">enigma<div id="theX">X</div></h1>
+
+
+<div id="buttonArea1" >
+	<div class="button" id="enigmaX">enigmaX</div>
+	<div class="buttonDead" id="enigmaEmu"> </div>
+	<div class="buttonDead" id="asciiConvert"> </div>
+	<div class="button" id="about">about</div>
+</div>
+
+<!-----------Main Div------------->
+<div id="mainDiv">
+
+<div id="keyBox1">
+<textarea readonly ></textarea>
+</div>
+
+<!--------Message Div------------>
+<div id="messageDiv">
+	<div id="buttonArea2">
+	<div class="button">load key</div>
+	<div class="button">new key</div>
+	<div class="button">encrypt/decrypt</div>
+</div>
+
+
+<div id="messageBox">
+<!--div id="messageBoxDefault">paste or type your message here....</div-->
+<textarea></textarea>
+</div>
+
+</div>
+<!------End of Message Div------->
+
+<!----------Load Div------------>
+<div id="loadDiv">
+
+	<div id="buttonArea3">
+		<div class="button">back</div>
+		<div class="button">reset</div>
+		<div class="button">load</div>
+	</div>
+
+	<div id="keyBox2">
+	<!--div id = "inputKeyBoxDefault">paste your key here and click load...</div-->
+	<textarea></textarea>
+	</div>
+
+	<!----------EReg Div-------------------->
+	<div id="eRegDiv">
+
+	<p>
+	You've found Enigma Mode! Here you can use Enigma X as a regular Enigma simulator. Check the about section to find other online Enigma simulators to talk to. These sites will also help you understand how to use the Enigma if you don't already know.
+	</p>
+
+	<p>
+	To load a particular key just edit the string in the box above and then click load. The format is as follows.
+	</p>
+
+	<p class="centered">
+	(rotors-start-rings-plugboard)
+	</p>
+
+	<p>
+	Enigma X has 26 Rotors for every letter of the aphabet. The following though are useful for communicating with other Enigma simulators that use the German millitary rotors, such as the Enigma M3.
+	</p>
+
+	<p class="centered">
+	rotor translation:  I=J   II=K   III=L   IV=M   V=N
+	</p>
+
+	<p>
+	To use the plugboard switch the letters in the aphabet. For intsance if you want A to encode to Z then switch A and Z. You must have all 26 letters of the aphabet, and not have any reapeat letters or the key will not load.
+	</p>
+
+
+
+	</div>
+	<!----------End of Ereg Div------------>
+
+
+</div>
+<!-------End of Load Div------>
+
+
+</div>
+<!-----End of Main Div----------->
+
+<!----------About Div------------>
+
+<div id="aboutDiv">
+
+	<h3>
+	coded by <br>
+	Tobias Toland <br>
+	version <br>
+	♞♞
+	</h3>
+
+	<p>
+	Enigma X is based on the <a href="https://en.wikipedia.org/wiki/Enigma_machine">German WWII code machine</a>. Since coding Enigma simulators is popular I wanted to do something unique. This is my attempt to make a more secure Enigma using the basic components of the original machine. It was also my very first JavaScript, and CSS project.
+	</p>
+
+	<p>
+	Enigma X will take any basic <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> message and encrypt it to "Think Ding", a special character set made of 26 Unicode symbols. To do this it translates each ASCII character into two Enigma characters (a letter from A-Z) and then pushes them through a randomly configured <a href="https://en.wikipedia.org/wiki/Enigma_machine#Plugboard">plugboard</a> and 26 randomly selected and configured <a href="https://en.wikipedia.org/wiki/Enigma_rotor_details">Enigma rotors</a>. Each message also has an added random key encoded within itself that is used to send the message again through a second set of 3 rotors so no two encodings will be the same. Finally the message is encoded to "Think Ding".
+	</p>
+
+	<p>
+	My basic security ideas are 1. Remove the <a href="https://en.wikipedia.org/wiki/Enigma_machine#Reflector">reflector</a> so any letter can be encoded to itself 2. Increase the size of the key by a bunch (that's a technical term) 3. Add random variability to every message encoded.
+	</p>
+
+	<p>
+	I have attempted to make Enigma X as secure as possible. In the end I am at best an amatuer crypographer and this is based on a machine notorious for being broken before the age of computers. It is safe to say this encryption scheme is dubious. With that said, Enigma X is just for fun and education. If anyone has any good ideas for breaking it I'd love to hear about them.
+	</p>
+
+	<p>
+	Enigma X is pure JavaScript, HTML, and CSS, with direct DOM manipulation. It does not use JQuery! The only thing not hand crafted by myself is <a href="https://github.com/bitwiseshiftleft/sjcl">SJCL</a> which is only used to generate cryptographically secure random numbers. It is published under the MIT licence. <a href="https://github.com/thinktt/enigmaX">This is it's github page.</a> The online Enigma simulators by <a href="http://enigma.louisedade.co.uk/enigma.html">Louise Dade</a>, <a href="http://startpad.googlecode.com/hg/labs/js/enigma/enigma-sim.html">Mike Koss</a> and <a href="http://enigmaco.de/enigma/enigma.swf">Frank Spiess</a> were all very helpful while coding this. Also thanks to great community at stackoverflow who helped me solve my CSS and JavaScript problems.
+	</p>
+
+</div>
+
+<!-------End of About Div------>
+
+</div><!--centerDiv-->
+</div><!--hiddenBody-->
+</body>
+
+<script src="sjcl.js"> </script>
+<script src="enigmax.js"> </script>
+</html>
